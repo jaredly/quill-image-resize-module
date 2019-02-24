@@ -26,7 +26,7 @@ export default class ImageResize {
 
         // Apply options to default options
         this.options = options;
-		Object.keys(DefaultOptions).forEach(key => this.options[key] = {...DefaultOptions[key], ...this.options[key]});
+		Object.keys(DefaultOptions).forEach(key => this.options[key] = Object.assign({}, DefaultOptions[key], this.options[key]));
 
         // (see above about moduleClasses)
         if (moduleClasses !== false) {
