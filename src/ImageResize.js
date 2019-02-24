@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/defaultsDeep';
+// import defaultsDeep from 'lodash/defaultsDeep';
 import DefaultOptions from './DefaultOptions';
 import { DisplaySize } from './modules/DisplaySize';
 // import { Toolbar } from './modules/Toolbar';
@@ -25,7 +25,8 @@ export default class ImageResize {
         }
 
         // Apply options to default options
-        this.options = defaultsDeep({}, options, DefaultOptions);
+        this.options = options;
+		Object.keys(DefaultOptions).forEach(key => this.options[key] = {...DefaultOptions[key], ...this.options[key]});
 
         // (see above about moduleClasses)
         if (moduleClasses !== false) {
